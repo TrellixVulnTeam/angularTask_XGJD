@@ -12,6 +12,9 @@ import { AddWomanFormComponent } from './components/forms/add-woman-form/add-wom
 import { WomenListComponent } from './pages/women-list/women-list.component';
 import { SingleWomanCardComponent } from './pages/women-list/single-woman-card/single-woman-card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
+import { SingleTaskComponent } from './pages/tasks-list/single-task/single-task.component';
+import { AddTaskFormComponent } from './components/add-task-form/add-task-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { FooterComponent } from './components/footer/footer.component';
     WomenListComponent,
     SingleWomanCardComponent,
     FooterComponent,
+    TasksListComponent,
+    SingleTaskComponent,
+    AddTaskFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

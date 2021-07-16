@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddTaskFormComponent } from './components/add-task-form/add-task-form.component';
 import { AddWomanFormComponent } from './components/forms/add-woman-form/add-woman-form.component';
 import { LogInFormComponent } from './components/forms/log-in-form/log-in-form.component';
 import { HomeComponent } from './pages/home/home.component';
+import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
 import { WomenListComponent } from './pages/women-list/women-list.component';
 
 const routes: Routes = [
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: 'womenList',
     component: WomenListComponent,
+  },
+  {
+    path: 'tasksList',
+    component: TasksListComponent,
+  },
+  {
+    path: 'addTask',
+    component: AddTaskFormComponent,
   },
   // {
   //   path: 'forms/editWoman/:currentUser',

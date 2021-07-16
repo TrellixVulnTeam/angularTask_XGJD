@@ -60,30 +60,52 @@ export class User {
   }
 }
 
-export class Action {
+//  `customers`(`ID`, `CustomerName`, `Occupation`, `Phone`, `Email`)
+//  `tasks`(`ID`, `Description`, `IsCompleted`,`createdAt`, `CustomerID`,'CustomerName' )
+export class Task {
   ID: number = 0;
-  AccountID: number = 0;
-  ActionType: number = 0;
-  Amount: number = 0;
-  Credit: number = 0;
-  payQnt: number = 0;
+  Description: string = '';
+  IsCompleted: number = 0;
   createdAt: string = '';
+  CustomerID: number = 0;
+  CustomerName: string = '';
 
   constructor(
     ID?: number,
-    AccountID?: number,
-    ActionType?: number,
-    Amount?: number,
-    Credit?: number,
-    payQnt?: number,
-    createdAt?: string
+    Description?: string,
+    IsCompleted?: number,
+    createdAt?: string,
+    CustomerID?: number,
+    CustomerName?: string
   ) {
     this.ID = ID || 0;
-    this.AccountID = AccountID || 0;
-    this.ActionType = ActionType || 0;
-    this.Amount = Amount || 0;
-    this.Credit = Credit || 0;
-    this.payQnt = payQnt || 0;
+    this.Description = Description || '';
+    this.IsCompleted = IsCompleted || 0;
     this.createdAt = createdAt || '';
+    this.CustomerID = CustomerID || 0;
+    this.CustomerName = CustomerName || '';
+  }
+}
+//  `customers`(`ID`, `CustomerName`, `Occupation`, `Phone`, `Email`)
+
+export class Customer {
+  ID: number = 0;
+  CustomerName: string = '';
+  Occupation: string = '';
+  Phone: string = '';
+  Email: string = '';
+
+  constructor(
+    ID?: number,
+    CustomerName?: string,
+    Occupation?: string,
+    Phone?: string,
+    Email?: string
+  ) {
+    this.ID = ID || 0;
+    this.CustomerName = CustomerName || '';
+    this.Occupation = Occupation || '';
+    this.Phone = Phone || '';
+    this.Email = Email || '';
   }
 }
