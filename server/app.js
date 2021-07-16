@@ -17,10 +17,16 @@ app.use(bodyParser.json());
 
 app.use(cors(corsOptions));
 
-const Users = require("./routes/usersRoute.js");
-app.use("/users", Users);
+const Customers = require("./routes/customersRoute");
+app.use("/customers", Customers);
 
-const Women = require("./routes/womenRoute.js");
-app.use("/women", Women);
+// const Tasks = require("./routes/tasksRoute");
+// app.use("/tasks", Tasks);
+
+// const Users = require("./routes/usersRoute.js");
+// app.use("/users", Users);
+
+// const Women = require("./routes/womenRoute.js");
+// app.use("/women", Women);
 
 app.listen(5004);
