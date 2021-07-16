@@ -20,8 +20,8 @@ app.use(cors(corsOptions));
 const Customers = require("./routes/customersRoute");
 app.use("/customers", Customers);
 
-// const Tasks = require("./routes/tasksRoute");
-// app.use("/tasks", Tasks);
+const Tasks = require("./routes/tasksRoute");
+app.use("/tasks", Tasks);
 
 // const Users = require("./routes/usersRoute.js");
 // app.use("/users", Users);
