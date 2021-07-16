@@ -3,11 +3,12 @@ const con = require("../utils/database");
 //  `customers`(`ID`, `CustomerName`, `Occupation`, `Phone`, `Email`)
 //  `tasks`(`ID`, `Description`, `IsCompleted`, `CustomerID`, `createdAt`)
 
-CREATE(task);
-exports.insertNewWoman = async (req, res) => {
-  let woman = await con.execute(`INSERT INTO tasks(Description) VALUES ('${req.body.WomanName}','${req.body.DateOfBirth}','${req.body.Country}','${req.body.Description}','${req.body.UserID}')`);
+// CREATE(task);
+exports.insertNewTask = async (req, res) => {
+  let woman = await con.execute(`INSERT INTO tasks(Description,CustomerID) VALUES ('${req.body.Description}','${req.body.CustomerID}')`);
   res.send(woman[0]);
 };
+// URL:   http://www.localhost:5004/tasks/insertNewTask
 
 // READ(tasks);
 exports.getAllTasks = async (req, res) => {
