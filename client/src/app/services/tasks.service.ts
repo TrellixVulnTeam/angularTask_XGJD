@@ -25,7 +25,6 @@ export class TasksService {
     this._customersARR = (await this.apiService.createGetService(
       url
     )) as Array<Customer>;
-    console.log('_customersARR: ', this._customersARR);
     this.getTasks('/tasks/getAllTasks');
     this.nav.navigate(['tasksList']);
   }
@@ -35,7 +34,6 @@ export class TasksService {
     this._tasksARR = (await this.apiService.createGetService(
       url
     )) as Array<Task>;
-    console.log('_tasksARR: ', this._tasksARR);
     // this.nav.navigate(['tasksList']);
   }
   // URL:   http://www.localhost:5004/tasks/getAllTasks
@@ -52,7 +50,6 @@ export class TasksService {
         CustomerID: this._currentTask.CustomerID,
       };
 
-      console.log('newTaskOB: ', newTaskOB);
       this.result = (await this.apiService.createPostService(
         url,
         newTaskOB
@@ -66,4 +63,24 @@ export class TasksService {
     }
   }
   // URL:   http://www.localhost:5004/tasks/insertNewTask
+
+  async deleteTask(url: string, ID?: number) {
+    this.result = (await this.apiService.createGetService(url + ID)) as any;
+    this.getTasks('/tasks/getAllTasks');
+    this.nav.navigate(['tasksList']);
+  }
+  // URL:   http://www.localhost:5004/tasks/deleteWomanByID?ID=
+
+  async updateTask(url: string, ID: any, IsCompleted?: number) {
+    let OB = {
+      IsCompleted: IsCompleted,
+      ID: ID,
+    };
+    this.result = (await this.apiService.createPostService(url, OB)) as any;
+    if (this.result.affectedRows === 1) {
+      this.getTasks('/tasks/getAllTasks');
+      this.nav.navigate(['tasksList']);
+    }
+  }
+  // URL:   http://www.localhost:5004/tasks/updateTask
 }

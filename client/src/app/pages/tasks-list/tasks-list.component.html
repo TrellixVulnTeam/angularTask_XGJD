@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row my-4">
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -8,16 +8,41 @@
           <th scope="col">Description</th>
           <th scope="col">created At</th>
           <th scope="col">IsCompleted</th>
+          <th scope="col">Delete Task</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let task of tasksService._tasksARR">
-          <th scope="row">1</th>
+        <tr *ngFor="let task of tasksService._tasksARR; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
           <td>{{ task.CustomerName }}</td>
           <td>{{ task.Description }}</td>
           <td>{{ task.createdAt }}</td>
-          <td>{{ task.IsCompleted === 0 ? "Not Done" : "Done" }}</td>
-          <!-- <app-single-task [task]="task"></app-single-task> -->
+          <td
+            [ngClass]="task.IsCompleted === 0 ? 'text-danger' : 'text-success'"
+          >
+            {{ task.IsCompleted === 0 ? "Not Done" : "Done" }}
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              (change)="
+                tasksService.updateTask(
+                  '/tasks/updateTask',
+                  task.ID,
+                  task.IsCompleted
+                )
+              "
+              [checked]="task.IsCompleted === 0 ? '' : 'checked'"
+            />
+          </td>
+          <td>
+            <i
+              class="fas fa-trash fa-lg mx-2 me-5 ps-4"
+              (click)="
+                tasksService.deleteTask('/tasks/deleteTaskByID?ID=', task.ID)
+              "
+            ></i>
+          </td>
         </tr>
       </tbody>
     </table>

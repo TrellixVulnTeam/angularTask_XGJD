@@ -23,10 +23,4 @@ app.use("/customers", Customers);
 const Tasks = require("./routes/tasksRoute");
 app.use("/tasks", Tasks);
 
-// const Users = require("./routes/usersRoute.js");
-// app.use("/users", Users);
-
-// const Women = require("./routes/womenRoute.js");
-// app.use("/women", Women);
-
 app.listen(5004);
