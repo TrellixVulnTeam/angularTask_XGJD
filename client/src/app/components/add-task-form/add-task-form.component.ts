@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { UsersService } from 'src/app/services/users.service';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-add-task-form',
@@ -10,7 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class AddTaskFormComponent implements OnInit {
   constructor(
-    public usersService: UsersService,
+    public tasksService: TasksService,
     public apiService: ApiService,
     public nav: Router
   ) {}

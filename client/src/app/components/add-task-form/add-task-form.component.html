@@ -1,1 +1,41 @@
-<p>add-task-form works!</p>
+<form class="addTaskForm row mx-auto mt-5 p-3">
+  <div class="col-md-12">
+    <label for="descriptionInput" class="form-label">Description</label>
+    <textarea
+      type="text"
+      [(ngModel)]="tasksService._currentTask.Description"
+      [ngModelOptions]="{ standalone: true }"
+      class="form-control"
+      id="descriptionInput"
+      required
+    ></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="selectInput" class="form-label">select Customer</label>
+    <select
+      [(ngModel)]="tasksService._currentTask.CustomerID"
+      [ngModelOptions]="{ standalone: true }"
+      class="form-control"
+      id="users"
+    >
+      <option
+        value="{{ customer.ID }}"
+        *ngFor="let customer of tasksService._customersARR"
+      >
+        {{ customer.CustomerName }}
+      </option>
+    </select>
+  </div>
+  <!-- //  `customers`(`ID`, `CustomerName`, `Occupation`, `Phone`, `Email`) -->
+
+  <div class="col-12 mt-3">
+    <button
+      class="btn btn-secondary"
+      type="submit"
+      (click)="tasksService.addTask('/tasks/insertNewTask')"
+    >
+      ADD
+    </button>
+  </div>
+</form>

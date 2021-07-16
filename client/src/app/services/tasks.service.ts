@@ -10,6 +10,7 @@ export class TasksService {
   _customersARR: Array<Customer> = [];
   _tasksARR: Array<Task> = [];
   result: any = {};
+  // num: number = 0;
 
   _currentTask: any = {
     Description: '',
@@ -39,7 +40,7 @@ export class TasksService {
   }
   // URL:   http://www.localhost:5004/tasks/getAllTasks
 
-  async addWomanByUserID(url: string) {
+  async addTask(url: string) {
     if (
       this._currentTask.Description === '' ||
       this._currentTask.CustomerID === 0
@@ -61,7 +62,7 @@ export class TasksService {
 
       this.getTasks('/tasks/getAllTasks');
       console.log('_tasksARR: ', this._tasksARR);
-      this.nav.navigate(['taskList']);
+      this.nav.navigate(['tasksList']);
     }
   }
   // URL:   http://www.localhost:5004/tasks/insertNewTask
