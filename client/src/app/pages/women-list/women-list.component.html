@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row my-4">
+    <div
+      *ngFor="let woman of womenService._womenARR"
+      class="col-lg-3 col-md-6 col-12"
+    >
+      <app-single-woman-card [woman]="woman"></app-single-woman-card>
+    </div>
+  </div>
+</div>

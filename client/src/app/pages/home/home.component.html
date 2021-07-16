@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Women</a>
+    <span class="welcome mx-2">{{
+      usersService._currentUser.length === 0
+        ? ""
+        : "hello, " + usersService._currentUser[0].UserName
+    }}</span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" (click)="usersService.isAuthenticated()">
+          <a class="nav-link active">{{
+            usersService._isAuthenticated ? "LogOut" : "logIn"
+          }}</a>
+        </li>
+        <li
+          *ngIf="usersService._isAuthenticated"
+          class="nav-item"
+          routerLink="forms/addWoman"
+        >
+          <a class="nav-link active"> Add Woman </a>
+        </li>
+
+        <!-- <button
+          class="btn btn-primary"
+          *ngIf="!usersService._isAuthenticated"
+          (click)="usersService.isAuthenticated()"
+        >
+          Login
+        </button>
+        <button
+          class="btn btn-primary"
+          *ngIf="usersService._isAuthenticated"
+          (click)="usersService.isAuthenticated()"
+        >
+          Logout
+        </button> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <div class="container">
+  <div class="row"><app-log-in-form></app-log-in-form></div>
+</div> -->
